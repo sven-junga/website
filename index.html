@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <title>S V E N J U N G A . C O M</title>
+    <meta name="description" content="svenjunga.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <style>
+        @keyframes neon {
+            0% {
+                color: #ff073a;
+                text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a;
+            }
+            20% {
+                color: #ff9f00;
+                text-shadow: 0 0 5px #ff9f00, 0 0 10px #ff9f00, 0 0 20px #ff9f00, 0 0 40px #ff9f00;
+            }
+            40% {
+                color: #fffb00;
+                text-shadow: 0 0 5px #fffb00, 0 0 10px #fffb00, 0 0 20px #fffb00, 0 0 40px #fffb00;
+            }
+            60% {
+                color: #00ff00;
+                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+            }
+            80% {
+                color: #00cfff;
+                text-shadow: 0 0 5px #00cfff, 0 0 10px #00cfff, 0 0 20px #00cfff, 0 0 40px #00cfff;
+            }
+            100% {
+                color: #d400ff;
+                text-shadow: 0 0 5px #d400ff, 0 0 10px #d400ff, 0 0 20px #d400ff, 0 0 40px #d400ff;
+            }
+        }
+
+        @keyframes flicker {
+            0% { color: #000; }
+            5% { color: #fff; }
+            10% { color: #000; }
+            15% { color: #333; }
+            50% { color: #000; }
+            65% { color: #999; }
+            90% { color: #000; }
+            92% { color: #bbb; }
+            94% { color: #000; }
+            96% { color: #fff; }
+            98% { color: #000; }
+            100% { color: #fff; }
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: #000;
+            margin: 0;
+            height: 100%;
+        }
+
+        .a-container {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7pt;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .random-color-text {
+            font-family: monospace;
+            white-space: pre;
+            animation: flicker 2.5s forwards;
+            animation-delay: 2.5s;
+            transform: translateZ(0);
+        }
+
+        .random-color-text span {
+            will-change: color, text-shadow;
+            display: inline-block;
+            animation: neon 2s infinite;
+            animation-timing-function: linear;
+        }
+
+        .random-color-text span:nth-child(odd) {
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .random-color-text span:nth-child(even) {
+            animation-delay: calc(var(--i) * 0.1s + 0.05s);
+        }
+    </style>
+</head>
+
+<body>
+<div class="a-container">
+      <pre class="random-color-text">                  ********
+                 **//////
+                /**        **    **  *****  *******
+                /*********/**   /** **///**//**///**
+                ////////**//** /** /******* /**  /**
+                       /** //****  /**////  /**  /**
+                 ********   //**   //****** ***  /**
+                ////////     //     ////// ///   //
+                  **
+                 /**                   *****
+                 /** **   ** *******  **///**  ******
+                 /**/**  /**//**///**/**  /** //////**
+                 /**/**  /** /**  /**//******  *******
+             **  /**/**  /** /**  /** /////** **////**
+            //***** //****** ***  /**  ***** //********
+             /////   ////// ///   //  /////   ////////
+
+
+
+
+                      <a href="mailto:S V E N J U N G A" id="mail">mail</a>           <a href="https://www.linkedin.com/in/sven-junga/">linkedin</a>
+
+
+                                                                   </pre>
+</div>
+
+<script>
+    function mail() {
+        return function (event) {
+            event.target.href = 'mailto:' + 'moc.agnu_jnevs@liam'.split('').reverse().join('').replaceAll('_', '');
+        };
+    }
+
+    document.getElementById('mail').onclick = mail(); // why do you click that fast? calm down...
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+            const preElements = document.querySelectorAll('.random-color-text');
+
+            preElements.forEach(pre => {
+                const nodes = Array.from(pre.childNodes);
+                let newText = '';
+                let index = 0;
+
+                nodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        const text = node.textContent;
+                        for (let char of text) {
+                            if (char === '*' || char === '/') {
+                                newText += `<span style="--i: ${index++};">${char}</span>`;
+                            } else {
+                                newText += char;
+                            }
+                        }
+                    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                        newText += node.outerHTML;
+                    }
+                });
+
+                pre.innerHTML = newText;
+            });
+
+            document.getElementById('mail').onclick = mail();
+        }, 1500);
+    });
+</script>
+</body>
+
+</html>
