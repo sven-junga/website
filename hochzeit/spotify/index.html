@@ -8,9 +8,38 @@
   <link rel="canonical" href="https://www.spotify.com">
 
   <title>Hochzeits-Sause Antonia & Sven</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      font-family: system-ui, sans-serif;
+    }
+
+    .rotierende-sektfloeten {
+      font-size: 4rem;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
-  <p>🥂</p>
+  <div class="rotierende-sektfloeten">🥂</div>
   <script>
     window.location.replace("https://www.spotify.com");
   </script>
