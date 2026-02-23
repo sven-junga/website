@@ -5,9 +5,6 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <title>Hochzeits-Sause Antonia & Sven</title>
-</head>
-<body>
-  <p>🥂</p>
 
   <script>
     const ua = navigator.userAgent.toLowerCase();
@@ -23,17 +20,19 @@
       !ua.includes("chrome");
 
     if (isIOS || isSafariMac) {
-      window.location.replace("/hochzeit/apple-music");
+      window.location.replace("apple-music/");
     } else {
-      window.location.replace("/hochzeit/spotify");
+      window.location.replace("spotify/");
     }
   </script>
-
+</head>
+<body>
+  <p>🥂</p>
   <noscript>
     <p>
       Kein JS? Hacky! Klick selbst: 
-      <a href="/hochzeit/apple-music">Apple Music</a> |
-      <a href="/hochzeit/spotify">Spotify</a>
+      <a href="apple-music/">Apple Music</a> |
+      <a href="spotify/">Spotify</a>
     </p>
   </noscript>
 </body>
