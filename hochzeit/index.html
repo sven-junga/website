@@ -2,17 +2,39 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="googlebot" content="noindex, nofollow, noarchive">
-  <meta http-equiv="refresh" content="0; url=https://www.icloud.com/invites/0b6tGIMR3Dh7US9Xn1c_iEX1A">
-  <link rel="canonical" href="https://www.icloud.com/invites/0b6tGIMR3Dh7US9Xn1c_iEX1A">
-
-  <title>Follow me...</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <title>Hochzeits-Sause Antonia & Sven</title>
 </head>
 <body>
-  <p>Just one more second</p>
+  <p>1. Umleitung kommt...</p>
+
   <script>
-    window.location.replace("https://www.icloud.com/invites/0b6tGIMR3Dh7US9Xn1c_iEX1A");
+    const ua = navigator.userAgent.toLowerCase();
+
+    const isIOS =
+      ua.includes("iphone") ||
+      ua.includes("ipad") ||
+      ua.includes("ipod");
+
+    const isSafariMac =
+      ua.includes("macintosh") &&
+      ua.includes("safari") &&
+      !ua.includes("chrome");
+
+    if (isIOS || isSafariMac) {
+      window.location.replace("/apple-music");
+    } else {
+      window.location.replace("/spotify");
+    }
   </script>
+
+  <noscript>
+    <p>
+      Kein JS? Hacky! Wähl selbst: 
+      <a href="/apple-music">Apple Music</a> |
+      <a href="/spotify">Spotify</a>
+    </p>
+  </noscript>
 </body>
 </html>
