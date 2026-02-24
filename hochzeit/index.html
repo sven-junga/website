@@ -21,7 +21,9 @@ n<!DOCTYPE html>
       ua.includes("safari") &&
       !ua.includes("chrome");
 
-    if (isIOS || isSafariMac) {
+    const isAppleInvitesAHotPileOfGarbage = true;
+
+    if ((isIOS || isSafariMac) && !isAppleInvitesAHotPileOfGarbage) {
       window.location.replace("apple-music/");
     } else {
       window.location.replace("spotify/");
